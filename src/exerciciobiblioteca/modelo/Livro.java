@@ -9,8 +9,8 @@ public class Livro extends itemEmprestado implements Reservavel {
     private String nomeRenovacao;
     private static final int Maximo_Renovacao = 2;
 
-    public Livro(String codigo, String titulo.int ano, String autor, String isbn) {
-        super(codigo, titulo, ano);
+    public Livro(String codigo, String titulo,int ano, String autor, String isbn) {
+        super(codigo,titulo,ano);
         if (autor == null || autor.isBlank()) {
             throw new IllegalArgumentException("Autor inválido");
         }
@@ -31,6 +31,11 @@ public class Livro extends itemEmprestado implements Reservavel {
     }
 
     @Override
+    public boolean devolver() {
+        return false;
+    }
+
+    @Override
     public boolean permitirRenovacao() {
         return renovaocaoUltilizada < Maximo_Renovacao;
     }
@@ -41,7 +46,7 @@ public class Livro extends itemEmprestado implements Reservavel {
             throw new IllegalArgumentException("Usuario inválido");
         }
         if (isDisponivel()) {
-            this.nomeRenovacao = usuario.getNome();
+            this.nomeRenovacao = usuario.getNome;
         }
     }
     @Override
@@ -59,7 +64,12 @@ public class Livro extends itemEmprestado implements Reservavel {
     }
     @Override
     public  String getDescricao(){
-     return "Autor "+ this.autor +"ISBN"+ this.isbn;
+     return "Autor "+ this.autor+ " ISBN " + this.isbn;
+    }
+
+    @Override
+    public String getLocalizacaoEstante() {
+        return "";
     }
 
     public boolean renovar(){

@@ -10,23 +10,24 @@ public  abstract class ItemAcervo {
     private static  int itensTotalCriados= 0;
 
 
- protected ItemAcervo(String codigo, String titulo, int ano, String codigo1, String titulo1, int ano1){
+    protected ItemAcervo(String codigo, String titulo, int ano) {
+        if (codigo== null || codigo.isBlank()){
+            throw  new IllegalArgumentException("Codigo inválido");
+        }
+        if (titulo == null || titulo.isBlank()){
+            throw  new IllegalArgumentException("Titulo inválido");
+        }
+        if (ano <= config.Ano_publicacao || ano > config.Ano_maximo){
+            throw  new IllegalArgumentException("Ano inválido");
 
-     if (codigo== null || codigo.isBlank()){
-      throw  new IllegalArgumentException("Codigo inválido");
-  }
-  if (titulo == null || titulo.isBlank()){
-      throw  new IllegalArgumentException("Titulo inválido");
-  }
-  if (ano <= config.Ano_publicacao || ano > config.Ano_maximo){
-      throw  new IllegalArgumentException("Ano inválido");
+        }
+        this.codigo = codigo;
+        this.titulo = titulo;
+        this.ano = ano;
+        this.disponivel=true;
+    }
 
-  }
-     this.codigo = codigo1;
-     this.titulo = titulo1;
-     this.ano = ano1;
-  }
-  public  abstract String Categoria();
+    public  abstract String Categoria();
   public  abstract String getDescricao();
 
   public String getCodigo(){
@@ -52,5 +53,5 @@ public  abstract class ItemAcervo {
   }
 
 
-
+    public abstract String getLocalizacaoEstante();
 }

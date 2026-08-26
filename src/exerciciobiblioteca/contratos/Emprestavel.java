@@ -1,5 +1,7 @@
 package exerciciobiblioteca.contratos;
 
+import exerciciobiblioteca.modelo.Usuario;
+
 public interface Emprestavel {
     int get_PrazoEmprestimoDias();
     double getMultaPorDia();

@@ -7,8 +7,8 @@ public  abstract class itemEmprestado extends ItemAcervo implements Emprestavel 
 
 
 
-    protected itemEmprestado(String codigo, String titulo, int ano, String codigo1, String titulo1, int ano1) {
-        super(codigo, titulo, ano, codigo1, titulo1, ano1);
+    protected itemEmprestado(String codigo, String titulo, int ano) {
+        super(codigo,titulo,ano);
     }
     @Override
     public boolean emprestar(Usuario usuario){
